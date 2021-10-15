@@ -1,3 +1,4 @@
+#![no_std]
 #![allow(unused_macros)]
 
 macro_rules! option {
