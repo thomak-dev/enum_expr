@@ -26,7 +26,7 @@ macro_rules! const_enum_expr {
             }
         }
     };
-    // matcher for enums with variants without expressions
+    // matcher for enums with optional expressions
     ($(#[$attr:meta])* $v:vis $name:ident<$t:ty> { $($variant:ident$(($x:expr))? $(=$d:literal)?),+ $(,)? }) => {
         $(#[$attr])*
         $v enum $name {
@@ -150,5 +150,18 @@ mod tests {
         );
         assert_eq!(MaybeAnswer::B.value(), None);
         assert_eq!(SpecialNumbers::Leet.value(), 1000 + 337);
+    }
+
+    #[test]
+    fn const_enum_expr_with_slice() {
+        #[allow(dead_code)]
+        const_enum_expr! {
+            Resource<&[u8]> {
+                FavIcon(&[1, 2, 3, 4]),
+                Banner(&[123]),
+            }
+        }
+
+        assert_eq!(Resource::FavIcon.value().len(), 4);
     }
 }
