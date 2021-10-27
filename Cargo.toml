@@ -3,4 +3,5 @@
 name = "enum_expr"
 authors = ["Thomas Makiela <thomak.dev@gmail.com>"]
 version = "0.1.0"
+license = "MIT"
 edition = "2021"

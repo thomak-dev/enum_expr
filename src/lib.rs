@@ -154,8 +154,8 @@ mod tests {
 
     #[test]
     fn const_enum_expr_with_slice() {
-        #[allow(dead_code)]
         const_enum_expr! {
+            #[allow(dead_code)]
             Resource<&[u8]> {
                 FavIcon(&[1, 2, 3, 4]),
                 Banner(&[123]),
